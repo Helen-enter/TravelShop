@@ -2,18 +2,16 @@ import {getTours} from "@rest/tours";
 import './assets/styles/main.scss';
 import {images} from "@services/img/img";
 import {ITours} from "./models/tours";
-import {getTourTemplate} from "./templates/tours";
-import {openModal} from "@services/modal/modalService";
 import {initFooterTitle, initHeaderTitle, initToursDivElements} from "@services/general/general";
 
-export let  toursDataArray: ITours[] = [];
+export let toursDataArray: ITours[] = [];
 const imagesStore = images; // ссылка на изображения нужна чтобы webpack формировал изображения в папке dist
 
 // init data
 const tourData: Promise<ITours[]> = getTours();
 
 function initApp() {
-  tourData.then((data): void => {
+  tourData.then((data: ITours[]): void => {
     console.log('call')
     toursDataArray = data;
     initToursDivElements(data);

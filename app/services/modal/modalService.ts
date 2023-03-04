@@ -1,14 +1,15 @@
 import {Modal} from "../../classess/modal";
-import {toursDataArray} from "../../index"; // ссылка на массив с данными
+import {toursDataArray} from "../../index";
+import {ITours} from "../../models/tours"; // ссылка на массив с данными
 
 // Определить типы для метода (возвращающие и для переменных в теле функции)
 
-export function openModal(type, i: number) {
+export function openModal(type: string, i: number): void {
 
-    const data= toursDataArray[i];
+    const data: ITours = toursDataArray[i];
     const tourId = data[i]?.id;
 
-    let modalInfo = {};
+    //let modalInfo = {};
     switch (type) {
         case "order":
             const modalTemplate = `

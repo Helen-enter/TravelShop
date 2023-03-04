@@ -7,17 +7,17 @@
 import {getTourTemplate} from "../../templates/tours";
 import {openModal} from "@services/modal/modalService";
 
-export function initHeaderTitle(ticketName, selector) {
+export function initHeaderTitle(ticketName: string, selector: string): void {
     const headerElement= document.querySelector('header');
-    const targetItem = headerElement.querySelector(selector);
+    const targetItem: HTMLElement = headerElement.querySelector(selector);
     if (targetItem) {
         targetItem.innerText = ticketName;
     }
 }
 
-export function initFooterTitle(ticketName, selector) {
+export function initFooterTitle(ticketName: string, selector: string): void {
     const headerElement = document.querySelector('footer');
-    const targetItem = headerElement.querySelector(selector);
+    const targetItem: HTMLElement = headerElement.querySelector(selector);
     if (targetItem) {
         targetItem.innerText = ticketName;
     }
