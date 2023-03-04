@@ -6,6 +6,7 @@
 */
 import {getTourTemplate} from "../../templates/tours";
 import {openModal} from "@services/modal/modalService";
+import {ITours} from "../../models/tours";
 
 export function initHeaderTitle(ticketName: string, selector: string): void {
     const headerElement= document.querySelector('header');
@@ -23,7 +24,7 @@ export function initFooterTitle(ticketName: string, selector: string): void {
     }
 }
 
-export function initToursDivElements(data) {
+export function initToursDivElements(data: ITours[]): void {
 
     if (Array.isArray(data)) {
         const rootElement = document.querySelector('.main-app');
@@ -45,10 +46,10 @@ export function initToursDivElements(data) {
 }
 
 
-export function initTourElemListener(tourWrap) {
+export function initTourElemListener(tourWrap: HTMLElement): void {
     tourWrap.addEventListener('click', (ev) => {
-        const targetItem = ev.target;
-        const parentItem = targetItem?.parentNode;
+        const targetItem = <HTMLElement> ev.target;
+        const parentItem = <HTMLElement> targetItem?.parentNode;
         let realTarget;
 
         if (targetItem.hasAttribute('data-tour-item-index')) {
